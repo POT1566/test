@@ -9,36 +9,36 @@ def multiply(x, y):
 
 def divide(x, y):
     if y == 0:
-        return "Błąd: dzielenie przez zero!"
+        return "Błąd: Dzielenie przez zero!"
     return x / y
 
-print("Witamy w prostym kalkulatorze!")
-
-while True:
-    print("\nWybierz operację:")
+def calculator():
+    print("Wybierz operację:")
     print("1. Dodawanie")
     print("2. Odejmowanie")
     print("3. Mnożenie")
     print("4. Dzielenie")
-    print("Q. Wyjście")
 
-    choice = input("Podaj wybór (1/2/3/4/Q): ").strip()
+    choice = input("Wpisz numer operacji (1/2/3/4): ")
 
-    if choice in ('Q', 'q'):
-        print("Wyjście z kalkulatora. Do widzenia!")
-        break
+    if choice in ['1', '2', '3', '4']:
+        num1 = float(input("Wpisz pierwszą liczbę: "))
+        num2 = float(input("Wpisz drugą liczbę: "))
 
-    if choice not in ('1', '2', '3', '4'):
-        print("Nieprawidłowy wybór, spróbuj ponownie.")
-        continue
+        if choice == '1':
+            print(f"{num1} + {num2} = {add(num1, num2)}")
+        elif choice == '2':
+            print(f"{num1} - {num2} = {subtract(num1, num2)}")
+        elif choice == '3':
+            print(f"{num1} * {num2} = {multiply(num1, num2)}")
+        elif choice == '4':
+            print(f"{num1} / {num2} = {divide(num1, num2)}")
+    else:
+        print("Nieprawidłowa opcja!")
 
-    try:
-        num1 = float(input("Podaj pierwszą liczbę: "))
-        num2 = float(input("Podaj drugą liczbę: "))
-    except ValueError:
-        print("Nieprawidłowe dane wejściowe. Wprowadź liczby.")
-        continue
-
-    if choice == '1':
-        print(f"Wynik: {num1} + {num2} = {add(num1, num2)}")
-    elif choice ==
+if __name__ == "__main__":
+    while True:
+        calculator()
+        next_calculation = input("Czy chcesz wykonać kolejną obliczenie? (tak/nie): ")
+        if next_calculation.lower() != 'tak':
+            break
